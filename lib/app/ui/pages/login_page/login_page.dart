@@ -1,15 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import '../../widget/custom_tabBar_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
-   
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../../widget/custom_tabBar_widget.dart';
+import '../../../controllers/login_controller.dart';
+
+
+class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+ return Scaffold(
       backgroundColor: Color(0xffFF9292),
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                 borderRadius: BorderRadius.horizontal(left:Radius.circular(40),right: Radius.circular(40)),
               color: Color(0xffFFB4B4)
               ),
-            
+            child: CustomTabBarWidget(),
            ),
            ),
           
@@ -43,4 +42,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
+  

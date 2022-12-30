@@ -1,5 +1,7 @@
-import 'package:bmifirebase/modules/login/login_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import 'app/ui/pages/login_page/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home:  LoginScreen(),
+     home:  LoginPage(),
     );
   }
 }

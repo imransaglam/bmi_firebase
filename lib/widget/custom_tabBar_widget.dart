@@ -19,14 +19,26 @@ class _CustomTabBarWidgetState extends State<CustomTabBarWidget> with TickerProv
       body: Column(
         children: [
           Container(
-            child:  TabBar(
-              controller:_tabController ,
-              tabs: [
-              Tab(text: 'Login',),
-              Tab(text: 'Sign Up',)
-            ]),
+            child:  Align(
+              alignment: Alignment.center,
+              child: TabBar(
+                indicator: UnderlineTabIndicator(
+          borderSide: BorderSide(width: 5.0),
+          insets: EdgeInsets.symmetric(horizontal:40.0)
+        ),
+                indicatorColor: Colors.amber,
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.pink,
+                controller:_tabController ,
+                tabs: [
+                Tab(text: 'Login',),
+                Tab(text: 'Sign Up',)
+              ]),
+            ),
           ),
           Container(
+             width: double.infinity,
+             height: 300,
             child:  TabBarView(
               controller:_tabController ,
               children:[
