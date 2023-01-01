@@ -1,57 +1,51 @@
+import 'package:bmifirebase/const/const_data.dart';
+import 'package:bmifirebase/widget/custom_textMessage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../widget/custom_tabBar_widget.dart';
 import '../../../controllers/login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
+final Apptexts texts=Apptexts();
+final AppSize sizes=AppSize();
+final AppPositionedNumber numbers=AppPositionedNumber();
+final SizedBoxSize sizedBoxSize=SizedBoxSize();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFF9292),
+      backgroundColor: AppColor.appColorDark,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(
               children: [
                 Container(
-                  height: 300,
+                  height: sizes.messageContainerHeight,
                   width: MediaQuery.of(context).size.width,
                 ),
                 Positioned(
-                    bottom: 45,
-                    left: 20,
-                    child: Text(
-                      'Hey!',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xffFFDCDC)),
-                    )),
+                    bottom: numbers.postionedBottom,
+                    left: numbers.postionedLeft,
+                    child: CustomTextMesageWidget(texts: texts, title: texts.loginScreenText,)),
                 Positioned(
-                    bottom: 0,
-                    left: 20,
-                    child: Text(
-                      'Welcome Back',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xffFFDCDC)),
-                    )),
+                    bottom: numbers.postionedBottomZero,
+                    left: numbers.postionedLeft,
+                    child: CustomTextMesageWidget(texts: texts, title: texts.loginScreenText2,)),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
+            sizedbox(),
             CustomTabBarWidget()
           ],
         ),
       ),
     );
   }
+
+  SizedBox sizedbox() {
+    return SizedBox(
+            height:sizedBoxSize.SizedBoxHeight,
+          );
+  }
 }
+
+
