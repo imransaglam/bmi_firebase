@@ -23,18 +23,20 @@ class LoginPage extends GetView<LoginController> {
              ],
            ),
       
-           Padding(
-             padding: const EdgeInsets.only(top:20),
-             child: Container(
-              height:MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.horizontal(left:Radius.circular(40),right: Radius.circular(40)),
-              color: Color(0xffFFB4B4)
-              ),
-            child: CustomTabBarWidget(),
-           ),
-           ),
+          //  Padding(
+          //    padding: const EdgeInsets.only(top:20),
+          //    child: Container(
+          //     height:MediaQuery.of(context).size.height,
+          //     width: MediaQuery.of(context).size.width,
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.horizontal(left:Radius.circular(40),right: Radius.circular(40)),
+          //     color: Color(0xffFFB4B4)
+          //     ),
+          //   child: CustomTabBarWidget(),
+          //  ),
+          //  ),
+
+           CustomTabBarWidget()
           
           ],
         ),
