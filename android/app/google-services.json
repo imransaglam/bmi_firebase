@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "257718377774",
+    "project_id": "bmi-uskudar",
+    "storage_bucket": "bmi-uskudar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257718377774:android:9b5467a652cfeddeb02ebf",
+        "android_client_info": {
+          "package_name": "com.example.bmifirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257718377774-crn1bbirf7slukg0c3ai99fh24l68eei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnuufZ1FTmHLeY5Xns8WuG3hULn-yLY8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257718377774-crn1bbirf7slukg0c3ai99fh24l68eei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

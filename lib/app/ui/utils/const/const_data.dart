@@ -14,6 +14,8 @@ class Apptexts{
   final String SignUpScreenLabelPassword="Create password";
   final String SignUpScreenLabelTextButton="Or login here";
   final String SignUpScreenLabelConditions="Terms & Conditions Apply*";
+  final String BmiCalculate="Calculate";
+  final String BmiInfo="Start over";
 }
 class AppColor{
   static const Color appColorLight=Color(0xffFFDCDC);
@@ -27,7 +29,7 @@ class AppSize{
   final double fontSizeSignLogin=15;
   final double fontSizeConditions=12;
   final int tabBarControllerSize=2;
-  final double elevatedButtonFontSize=30;
+  final double elevatedButtonFontSize=25;
   final double elevatedButtonHeight=60;
   final double elevatedButtonWidth=250;
 }

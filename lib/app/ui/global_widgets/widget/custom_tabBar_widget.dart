@@ -1,5 +1,6 @@
-import 'package:bmifirebase/const/const_data.dart';
-import 'package:bmifirebase/widget/custom_tab_widget.dart';
+import 'package:bmifirebase/app/controllers/login_controller.dart';
+import 'package:bmifirebase/app/ui/utils/const/const_data.dart';
+import 'package:bmifirebase/app/ui/global_widgets/widget/custom_tab_widget.dart';
 import 'package:flutter/material.dart';
 import 'custom_loginScreen_widget.dart';
 
@@ -12,6 +13,8 @@ class CustomTabBarWidget extends StatefulWidget {
 
 class _CustomTabBarWidgetState extends State<CustomTabBarWidget>
     with TickerProviderStateMixin {
+
+  LoginController controller=LoginController();
   final Apptexts texts = Apptexts();
   final BoxRadius bRadius = BoxRadius();
   final AppSize sizes = AppSize();
@@ -60,16 +63,21 @@ class _CustomTabBarWidgetState extends State<CustomTabBarWidget>
             child: TabBarView(controller: tabController, children: [
               CustomLoginScreenWidget(
                   Email: texts.loginScreenLabelMail,
+                  control1: controller.loginpassword,
+                  control: controller.loginmail,
                   Password: texts.loginScreenLabelPassword,
                   Login: texts.loginScreenLabelLogin,
                   SignUp: texts.loginScreenLabelTextButton,
                   Conditions: texts.loginScreenLabelConditions),
-              CustomLoginScreenWidget(
+
+            /*   CustomLoginScreenWidget(
+                control: controller.registermail,
+                control1: controller.registermail,
                   Email: texts.SignUpScreenLabelMail,
                   Password: texts.SignUpScreenLabelPassword,
                   Login: texts.loginScreenLabelSignUp,
                   SignUp: texts.SignUpScreenLabelTextButton,
-                  Conditions: texts.SignUpScreenLabelConditions),
+                  Conditions: texts.SignUpScreenLabelConditions), */
             ]),
           )
         ],

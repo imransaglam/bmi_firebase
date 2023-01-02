@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../const/const_data.dart';
+import '../../utils/const/const_data.dart';
 
 class CustomTextButtonWidget extends StatelessWidget {
   const CustomTextButtonWidget({
     Key? key,
     required this.titles,
-    required this.texts, required this.fontSizes,
+    required this.texts, required this.fontSizes
   }) : super(key: key);
 
   final String titles;
   final Apptexts texts;
   final double fontSizes;
+
 
   @override
   Widget build(BuildContext context) {

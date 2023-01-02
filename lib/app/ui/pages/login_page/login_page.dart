@@ -1,8 +1,8 @@
-import 'package:bmifirebase/const/const_data.dart';
-import 'package:bmifirebase/widget/custom_textMessage_widget.dart';
+import 'package:bmifirebase/app/ui/utils/const/const_data.dart';
+import 'package:bmifirebase/app/ui/global_widgets/widget/custom_textMessage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../widget/custom_tabBar_widget.dart';
+import '../../global_widgets/widget/custom_tabBar_widget.dart';
 import '../../../controllers/login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {

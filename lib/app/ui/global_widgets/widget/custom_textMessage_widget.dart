@@ -1,4 +1,4 @@
-import 'package:bmifirebase/const/const_data.dart';
+import 'package:bmifirebase/app/ui/utils/const/const_data.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextMesageWidget extends StatelessWidget {

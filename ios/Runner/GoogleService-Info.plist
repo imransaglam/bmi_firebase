@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>257718377774-13q4jarbh5lsr5hrh8h8io7ck2ur9h9t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.257718377774-13q4jarbh5lsr5hrh8h8io7ck2ur9h9t</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBtB9L32NETj5xgpcCEpB_Z7s4t4pIZL94</string>
+	<key>GCM_SENDER_ID</key>
+	<string>257718377774</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.bmifirebase</string>
+	<key>PROJECT_ID</key>
+	<string>bmi-uskudar</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bmi-uskudar.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:257718377774:ios:6ffab747450bef85b02ebf</string>
+</dict>
+</plist>
