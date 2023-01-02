@@ -3,6 +3,7 @@ import 'package:bmifirebase/app/ui/utils/const/const_data.dart';
 import 'package:bmifirebase/app/ui/global_widgets/widget/custom_tab_widget.dart';
 import 'package:flutter/material.dart';
 import 'custom_loginScreen_widget.dart';
+import 'custom_signUpScreen_widget.dart';
 
 class CustomTabBarWidget extends StatefulWidget {
   const CustomTabBarWidget({super.key});
@@ -70,6 +71,14 @@ class _CustomTabBarWidgetState extends State<CustomTabBarWidget>
                   SignUp: texts.loginScreenLabelTextButton,
                   Conditions: texts.loginScreenLabelConditions),
 
+              CustomSignUpScreenWidget(
+                Conditions: texts.SignUpScreenLabelConditions,
+                Email: texts.SignUpScreenLabelMail, 
+                Login: texts.loginScreenLabelSignUp, 
+                Password: texts.SignUpScreenLabelPassword,
+                SignUp: texts.SignUpScreenLabelTextButton,
+                control: controller.signupmail,
+                control1: controller.signuppassword,)
             /*   CustomLoginScreenWidget(
                 control: controller.registermail,
                 control1: controller.registermail,

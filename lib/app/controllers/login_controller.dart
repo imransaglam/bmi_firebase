@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
 TextEditingController loginmail=TextEditingController();
 TextEditingController loginpassword=TextEditingController();
-TextEditingController registermail=TextEditingController();
-TextEditingController registerpassword=TextEditingController();
+TextEditingController signupmail=TextEditingController();
+TextEditingController signuppassword=TextEditingController();
 AuthService auth=AuthService();
 }
   
