@@ -1,51 +1,165 @@
 
 import 'package:bmifirebase/app/routes/app_pages.dart';
+import 'package:bmifirebase/app/shared/service/auth_service.dart';
+import 'package:bmifirebase/app/shared/service/firestore_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BmiCalculatorPageController extends GetxController {
+AuthService authSrvice=AuthService();
+FirebaseFirestore firebaseFirestore=FirebaseFirestore.instance;
+FirestoreService db=FirestoreService();
+
+TextEditingController weight = TextEditingController();
+TextEditingController height = TextEditingController();
 
 double result=0;
- String note = " ";
-  List<String> photo = [
+var note = " ";
+
+  List photo = [
     'assets/underweighted.png',
     'assets/fit.png',
     'assets/overweighted.png',
     'assets/obesity.png',
     'assets/extremlyobesed.png'
   ];
-   final formGlobalKey = GlobalKey<FormState>();
-   TextEditingController weight = TextEditingController();
-  TextEditingController height = TextEditingController();
 
-  void assestment() {
-  if (formGlobalKey.currentState!.validate()) {
-                    print("height değeri: " + height.text);
-                    print("weight değeri: " + weight.text);
 
-                    result = double.parse(weight.text) /
-                        ((double.parse(height.text) *
-                            double.parse(height.text))) *
-                        10000;
+  void calculate(String heightt,String weightt) async{
+  var values=(int.parse(heightt)/100)*(int.parse(heightt)/100);
+   result=double.parse(weightt)/double.parse(values.toString());
 
-                    print(" result değeri: " + result.toString());
+                    db.addUserInfo(weight.text,height.text,result.toStringAsFixed(2));
                     if (result <= 18.5) {
-                       Get.toNamed(Routes.INFO,parameters: {'note':'You are underweighted','result':'${result.toString()},','photo':photo[0]});
-                   
+                      note='You are underweighted';
+                      photo=photo[0];
+                       Get.toNamed(Routes.INFO);
                     } else if (result > 18.6 && result <= 24.9) {
-                      Get.toNamed(Routes.INFO,parameters: {'note':'You are totaly fit','result':'${result.toString()}','photo':photo[1]});
-                 
+                       note='You are totaly fit';
+                      photo=photo[1];
+                       Get.toNamed(Routes.INFO);
                     } else if (result >= 25 && result <= 29.9) {
-                       Get.toNamed(Routes.INFO,parameters: {'note':'You are overweighted','result':'${result.toString()}','photo':photo[2]});
-                    
+                      note='You are overweighted';
+                      photo=photo[2];
+                       Get.toNamed(Routes.INFO);
                     } else if (result >= 30 && result <= 34.9) {
-                      Get.toNamed(Routes.INFO,parameters: {'note':'You are obesed','result':'${result.toString()}','photo':photo[3]});
-                
+                      note='You are obesed';
+                      photo=photo[3];
+                       Get.toNamed(Routes.INFO);
                     } else if (result >= 35) {
-                       Get.toNamed(Routes.INFO,parameters: {'note':'You are extremely obesed','result':'${result.toString()}','photo':photo[4]});
-                    
+                      note='You are extremely obesed';
+                      photo=photo[4];
+                       Get.toNamed(Routes.INFO);
                     }
+
+                   
+                }
+
+                 isBMIControl() {
+    if (weight.text == '' || height.text == '') {
+      Get.dialog(
+        AlertDialog(
+          title: const Text('Alert',
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          content: const Text(
+            'Cannot be blank',
+            style: TextStyle(color: Colors.black, fontSize: 12),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('Cancel',
+                  style: TextStyle(
+                      color: Color(0xff468FF8),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold)),
+            ),
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('OK',
+                  style: TextStyle(
+                      color: Color(0xff468FF8),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold)),
+            ),
+          ],
+        ),
+      );
+    } 
+    else 
+    if (int.parse(height.text) < 50 || int.parse(height.text) > 250) {
+      Get.dialog(
+        AlertDialog(
+          title: const Text('Alert',
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          content: const Text(
+            'The height value should be in the range of 50 - 250 cm!',
+            style: TextStyle(color: Colors.black, fontSize: 12),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('Cancel',
+                  style: TextStyle(
+                      color: Color(0xff468FF8),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold)),
+            ),
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    } else if (int.parse(weight.text) < 10 || int.parse(weight.text)> 300) {
+      Get.dialog(
+        AlertDialog(
+          title: const Text('Alert',
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          content: const Text(
+            'The weight value should be in the range of 10 - 300 kg!',
+            style: TextStyle(color: Colors.black, fontSize: 12),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('Cancel',
+                  style: TextStyle(
+                      color: Color(0xff468FF8),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold)),
+            ),
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('OK',
+                  style: TextStyle(
+                      color: Color(0xff468FF8),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold)),
+            ),
+          ],
+        ),
+      );
+    }
+    else {
+      print(weight.text);
+      calculate(weight.text,height.text);
+     
+    }
   }
+
 }
-}
-  

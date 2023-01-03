@@ -3,11 +3,11 @@ import 'package:bmifirebase/app/ui/global_widgets/widget/custom_elevatedButton_w
 import 'package:bmifirebase/app/ui/utils/const/const_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controllers/bmiinfo_controller.dart';
+import '../../../controllers/bmicalculator_controller.dart';
 import '../../../routes/app_pages.dart';
 
 
-class BmiinfoPage extends GetView<BmiinfoController> {
+class BmiinfoPage extends GetView<BmiCalculatorPageController> {
   final Apptexts texts=Apptexts();
   final AppSize sizes=AppSize();
   @override

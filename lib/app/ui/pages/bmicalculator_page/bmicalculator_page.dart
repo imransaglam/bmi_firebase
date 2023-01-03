@@ -16,9 +16,8 @@ class BmiCalculatorPage extends GetView<BmiCalculatorPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.appColorLight,
-      body:Form(
-         key: controller.formGlobalKey,
-        child: Padding(
+      body:
+         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: SingleChildScrollView(
             child: Column(
@@ -43,20 +42,11 @@ class BmiCalculatorPage extends GetView<BmiCalculatorPageController> {
 
 
 
-                 TextFormField(
+                 TextField(
                      inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly
                     ],
-                     validator: (value) {
-                         if (value!.isEmpty) {
-                        return "Enter your weight";
-                      } else if (double.parse(controller.weight.text) <= 29 ||
-                          double.parse(controller.weight.text) >= 251) {
-                        return "You should enter your weight between 30 kg and 250 kg  ";
-                      } else {
-                        return null;
-                      }
-                     },
+                    controller: controller.weight,
                   keyboardType: TextInputType.number,
                   decoration:InputDecoration(
                   labelText: "Weight",
@@ -69,21 +59,10 @@ class BmiCalculatorPage extends GetView<BmiCalculatorPageController> {
               ),
                 ),
                 const SizedBox(height: 30,),
-                   TextFormField(
+                   TextField(
              inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly
                     ],
-                     validator:(value) {
-                        if (value!.isEmpty) {
-                        return "Enter your height";
-                      } else if (double.parse(controller.height.text) <= 101 ||
-                          double.parse(controller.height.text) >= 251) {
-                        return "You should enter your height between 100 and 250  ";
-                      } 
-                      else {
-                        return null;
-                      }
-                     }, 
                     controller: controller.height,
                   keyboardType: TextInputType.number,
                   decoration:InputDecoration(
@@ -97,7 +76,7 @@ class BmiCalculatorPage extends GetView<BmiCalculatorPageController> {
               ),
                 ),  
                 const SizedBox(height: 40,),
-                Center(child: CustomElevatedButtonWidget(Login:texts.BmiCalculate,texts:texts, pressedx: () {controller.assestment();  },))         
+                Center(child: CustomElevatedButtonWidget(Login:texts.BmiCalculate,texts:texts, pressedx: () { controller.isBMIControl(); },))         
                 
           
           
@@ -105,7 +84,7 @@ class BmiCalculatorPage extends GetView<BmiCalculatorPageController> {
             ),
           ),
         ),
-      ) ,
+      
     );
   }
 }
