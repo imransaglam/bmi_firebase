@@ -72,7 +72,9 @@ class CustomSignUpScreenWidget extends GetView<LoginController> {
             child: SizedBox(
               width: sizes.elevatedButtonWidth,
               height: sizes.elevatedButtonHeight,
-              child: CustomElevatedButtonWidget(Login: Login, texts: texts, pressedx: () { Get.toNamed(Routes.BMI);},),
+              child: CustomElevatedButtonWidget(Login: Login, texts: texts, pressedx: () { 
+                 controller.auth.createUser(controller.signupmail.text, controller.signuppassword.text);
+                 },),
             ),
           )),
           Center(
