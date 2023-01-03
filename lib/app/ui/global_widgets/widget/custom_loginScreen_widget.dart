@@ -73,7 +73,8 @@ class CustomLoginScreenWidget extends GetView<LoginController> {
               width: sizes.elevatedButtonWidth,
               height: sizes.elevatedButtonHeight,
               child: CustomElevatedButtonWidget(Login: Login, texts: texts, pressedx: ()  async{
-                   await controller.auth.signUpAccount(controller.loginmail.text,controller.loginpassword.text);
+             
+                   await controller.auth.signUpAccount(control.text,control1.text);
                    },),
             ),
           )),

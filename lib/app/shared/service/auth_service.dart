@@ -9,11 +9,15 @@ class AuthService extends GetxController{
     return this;
    }
    createUser(email,password) async{
+    print("KODUMMMMMMMMMMMMMMMMMMMM");
       try {
+        print("SSSSSSSSSSSSSSS $email");
   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: email,
     password: password,
-  );
+  ).then((value) => Get.snackbar("kullanıcı Oluşturuldu", "başarılı"));
+    print("EMAİLLL $credential.email");
+  Get.toNamed(Routes.BMI);
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {
     return Get.defaultDialog(title: 'The password provided is too weak.The password should have at least 6 characters');
@@ -29,8 +33,8 @@ signUpAccount(email,password) async{
  try{
    final credential=await FirebaseAuth.instance.signInWithEmailAndPassword(
     email: email, 
-    password: password).then((value) => Get.offAndToNamed(Routes.LOGIN));
-    //print("Giriş yapıldı ${credential.user?.email}");
+    password: password).then((value) => Get.offAndToNamed(Routes.BMI));
+   
  }
  on FirebaseAuthException catch(e){
   if (e.code == 'user-not-found') {
